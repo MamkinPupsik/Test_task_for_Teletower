@@ -6,11 +6,16 @@ public class ObjectMovement : MonoBehaviour
     public Transform[] points; // Массив точек перемещения
     private int currentPointIndex = 0;
     private NavMeshAgent agent;
+    public float startSpeed = 2f;
+    public float RunSpeed = 2f;
+    private Animator anim;
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         MoveToNextPoint();
+        agent.speed = startSpeed;
     }
 
     private void Update()
@@ -28,5 +33,20 @@ public class ObjectMovement : MonoBehaviour
         // Переходим к следующей точке или возвращаемся к первой, если достигли конца массива точек
         agent.SetDestination(points[currentPointIndex].position);
         currentPointIndex = (currentPointIndex + 1) % points.Length;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("goRun"))
+        {
+            anim.SetBool("isRuning", true);
+            agent.speed += RunSpeed;
+        }
+
+        if(other.CompareTag("goWalk"))
+        {
+            anim.SetBool("isRuning", false);
+            agent.speed = startSpeed;
+        }
     }
 }

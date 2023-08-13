@@ -5527,7 +5527,7 @@ Animator:
   m_GameObject: {fileID: 196848832}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 897b34267f422c1499700402763d096e, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 074d0866563105042859c492799b69e0, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -7558,6 +7558,8 @@ GameObject:
   - component: {fileID: 187398596}
   - component: {fileID: 197131562}
   - component: {fileID: 197131561}
+  - component: {fileID: 197131563}
+  - component: {fileID: 197131564}
   m_Layer: 0
   m_Name: Policeman_01
   m_TagString: Untagged
@@ -8672,6 +8674,8 @@ MonoBehaviour:
   - {fileID: 1660394095}
   - {fileID: 1632592471}
   - {fileID: 403477094}
+  startSpeed: 2
+  RunSpeed: 2
 --- !u!195 &197131562
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -8694,6 +8698,36 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!54 &197131563
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196848832}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &197131564
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196848832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.5209973
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.7604984, z: 0}
 --- !u!4 &197132258
 Transform:
   m_ObjectHideFlags: 0
@@ -11723,9 +11757,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 305083275}
+  - component: {fileID: 305083276}
   m_Layer: 0
   m_Name: 1_step
-  m_TagString: Untagged
+  m_TagString: goWalk
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11745,6 +11780,19 @@ Transform:
   m_Father: {fileID: 2097259816}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &305083276
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305083274}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.754363
+  m_Center: {x: 0, y: 1.254363, z: 0}
 --- !u!1001 &309422202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14951,9 +14999,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 403477094}
+  - component: {fileID: 403477095}
   m_Layer: 0
   m_Name: 1_step (4)
-  m_TagString: Untagged
+  m_TagString: goRun
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14973,6 +15022,19 @@ Transform:
   m_Father: {fileID: 2097259816}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &403477095
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403477093}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.544117
+  m_Center: {x: 0, y: 1.044117, z: 0}
 --- !u!1001 &406130980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57112,9 +57174,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1632592471}
+  - component: {fileID: 1632592472}
   m_Layer: 0
   m_Name: 3_step
-  m_TagString: Untagged
+  m_TagString: goWalk
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57134,6 +57197,19 @@ Transform:
   m_Father: {fileID: 2097259816}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1632592472
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632592470}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.3729105
+  m_Center: {x: 0, y: 0.8729105, z: 0}
 --- !u!1001 &1633014298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58215,9 +58291,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1660394095}
+  - component: {fileID: 1660394096}
   m_Layer: 0
   m_Name: 2_step
-  m_TagString: Untagged
+  m_TagString: goRun
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58237,6 +58314,19 @@ Transform:
   m_Father: {fileID: 2097259816}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1660394096
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660394094}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.6854253
+  m_Center: {x: 0, y: 1.1854253, z: 0}
 --- !u!1001 &1660834828
 PrefabInstance:
   m_ObjectHideFlags: 0
